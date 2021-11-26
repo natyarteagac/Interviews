@@ -30,26 +30,33 @@ def new_book():
     return dump_data
 
 
-@books.route("/update/<id>", methods=["GET", "POST"], strict_slashes=False)
+@books.route("/update/<id>", methods=["GET", "PUT"], strict_slashes=False)
 def update_book(id):
     """Method to create a edit the book information"""
     book = Book.query.get(id)
-    title = request.json["title"]
-    author = request.json["author"]
-    if request.json["read"] == "Yes":
-        user_answer = True
-    else:
-        user_answer = False
-    book.title = title
-    book.author = author
-    book.read = user_answer
+    if request.method == 'PUT':
+        book.title = request.json["title"]
+        book.author = request.json["author"]
+        if request.json["read"] == "Yes":
+            book.read = True
+        else:
+            book.read = False
+        db.session.commit()
+        updated_data = book_schema.dump(book)
+        return updated_data
 
-    db.session.commit()
-    updated_data = book_schema.dump(book)
-    return updated_data
+    book_request = book_schema.dump(book)
+    return book_request
 
 
-@books.route("/delete", strict_slashes=False)
-def delete_book():
+@books.route("/delete/<id>", methods=['DELETE', 'GET'], strict_slashes=False)
+def delete_book(id):
     """Method to delete the book"""
-    return "I am going to delete you"
+    book = Book.query.get(id)
+    if request.method == 'DELETE':
+        db.session.delete(book)
+        db.session.commit()
+        deleted_data = book_schema.dump(book)
+        return deleted_data
+    book_request = book_schema.dump(book)
+    return book_request
