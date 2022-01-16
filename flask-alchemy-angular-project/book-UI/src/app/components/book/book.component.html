@@ -1,36 +1,41 @@
-<div class="container vertical-center mb-5">
-  <nav class="navbar navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Books</a>
-    </div>
-  </nav>
-</div>
-
-<!--ADD BUTTON-->
-<div class="container vertical-center mb-5">
-  <button type="button" class="btn btn-success">Add a book</button>
-</div>
-<!--BOOK LIST-->
-<div class="container vertical-center">
-  <table class="table table-sm">
-    <thead>
-      <tr class="mt-1 mb-1">
-        <th class="col-6">Title</th>
-        <th class="col-4">Author</th>
-        <th class="col-2">Read?</th>
-        <th class="col-1"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let book of books">
-        <td class="mt-1 mb-1"> {{ book.title }}</td>
-        <td> {{ book.author }} </td>
-        <td>{{ book.read }} </td>
-        <div class="d-flex justify-content-center">
-          <button type="button" class="btn btn-warning btn-sm">Update</button>
-          <button type="button" class="btn btn-danger btn-sm">Delete</button>
+<div class="container-fluid">
+  <div class="container-fluid">
+    <div class="container">
+      <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Books</a>
         </div>
-      </tr>
-    </tbody>
-  </table>
+      </nav>
+    </div>
+
+    <!--ADD BUTTON-->
+    <div class="container vertical-center">
+      <button routerLink="/books/add" type="button" class="btn btn-success mb-5 mt-5">Add a book</button>
+    </div>
+  </div>
+
+  <!--BOOK LIST-->
+  <div class="container vertical-center">
+    <table class="table table-sm">
+      <thead *ngIf="books.length > 0">
+        <tr class="mt-1 mb-1">
+          <th class="col-6">Title</th>
+          <th class="col-4">Author</th>
+          <th class="col-2">Read?</th>
+          <th class="col-1"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of books">
+          <td class="mt-1 mb-1"> {{ book.title }}</td>
+          <td> {{ book.author }} </td>
+          <td>{{ book.read }} </td>
+          <div class="d-flex justify-content-center">
+            <button type="button" class="btn btn-warning btn-sm">Update</button>
+            <button type="button" class="btn btn-danger btn-sm">Delete</button>
+          </div>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
