@@ -6,7 +6,7 @@ import { BooksService } from './books.service';
     providedIn: 'root'
 })
 export class BookListService {
-    books = []
+    books: Book[] = []
 
 
     constructor(private booksService: BooksService) { }
@@ -20,4 +20,13 @@ export class BookListService {
         )
         console.log(this.books);
     }
+    /*      getBooks() {
+        this.booksService.getBooks().subscribe(
+            data => {
+                console.log(data)
+                this.books = data;
+            },
+            error => console.log(error)
+        )
+    } */
 }

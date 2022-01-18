@@ -17,13 +17,12 @@ export class BooksService {
         return this.http.get<Book[]>(`${this.BASE_URL}`);
     }
     addBook(book: Book) {
-        console.log('HOla')
         return this.http.post(`${this.BASE_URL}/new`, book);
     }
     deleteBook(id: string) {
-        return this.http.delete(`${this.BASE_URL}/${id}`);
+        return this.http.delete(`${this.BASE_URL}/delete/${id}`);
     }
     updateBook(id: string, updatedBook: Book) {
-        return this.http.put(`${this.BASE_URL}/${id}`, updatedBook);
+        return this.http.put(`${this.BASE_URL}/update/${id}`, updatedBook);
     }
 }

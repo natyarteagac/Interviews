@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { BookComponent } from './components/book/book.component';
 import { BookFormComponent } from './components/book-form/book-form.component';
@@ -15,6 +15,10 @@ const routes: Routes = [
     },
     {
         path: 'books/add',
+        component: BookFormComponent
+    },
+    {
+        path: 'books/update/:id',
         component: BookFormComponent
     }
 ];

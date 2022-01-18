@@ -31,8 +31,8 @@
           <td> {{ book.author }} </td>
           <td>{{ book.read }} </td>
           <div class="d-flex justify-content-center">
-            <button type="button" class="btn btn-warning btn-sm">Update</button>
-            <button type="button" class="btn btn-danger btn-sm">Delete</button>
+            <a [routerLink]="['/books/update', book.id]" class="btn btn-warning btn-sm">Update</a>
+            <button type="button" class="btn btn-danger btn-sm" (click)="deleteBook(book.id)">Delete</button>
           </div>
         </tr>
       </tbody>
