@@ -24,6 +24,7 @@ export class BookComponent implements OnInit {
         this.booksService.getBooks().subscribe(
             res => {
                 this.books = res
+                console.log(res.map(value => value))
             },
             error => console.log(error)
         )
@@ -32,8 +33,7 @@ export class BookComponent implements OnInit {
     deleteBook(id: string) {
         this.booksService.deleteBook(id).subscribe(
             res => {
-                console.log(res)
-                this.getBooks()
+                this.getBooks();
             },
             error => console.log(error)
         )

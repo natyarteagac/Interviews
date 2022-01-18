@@ -40,10 +40,10 @@ export class BookFormComponent implements OnInit {
         }
     }
     saveNewBook() {
-        this.bookService.addBook(this.book).subscribe();
-        this.bookListService.books.push(this.book)
-        console.log(this.bookListService.books)
-        this.route.navigate(['/books']);
+        this.bookService.addBook(this.book).subscribe(() => {
+            this.route.navigate(['/books']);
+        }
+        );
     }
     updateBook() {
         this.bookService.updateBook(this.book.id, this.book).subscribe(
