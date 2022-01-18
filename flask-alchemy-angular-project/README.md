@@ -1,8 +1,10 @@
 # Setup Instructions
 
 ## Prerrequsites
-1. Install Python3.8.10
+
+1. Install python3.8.10
 2. Install pyenv
+3. Install mysql 8.0.27
 
 ## Locally
 1. In your terminal install python3.8.10 with pyenv
