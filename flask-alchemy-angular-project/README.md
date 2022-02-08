@@ -7,5 +7,5 @@
 3. Node 16.13
 
 ## Line command
-1. docker-compose up -d
-2. Open in the browser http://localhost:4200
+1. Run in console <command> docker-compose up -d <command/>
+2. Open in your browser http://localhost:4200
